@@ -1,0 +1,43 @@
+#include <Windows.h>
+#include "Resource.h"
+
+// Icon
+IDI_DEFAULT_DOOF	ICON 	"doofnik.ico"
+IDI_MICRO_DOOF		ICON 	"doofnik_micro.ico"
+
+// Menu
+IDM_MENU	MENU
+BEGIN
+	POPUP "&File"
+	BEGIN
+		MENUITEM	"&Open...\tCtrl+O",	IDM_OPEN_FILE
+		MENUITEM	SEPARATOR
+		MENUITEM	"&Quit",			IDM_QUIT
+	END
+
+	POPUP "&Help"
+	BEGIN
+		MENUITEM	"&About",			IDM_ABOUT
+	END
+END
+
+
+// Accelerator
+IDA_ACCEL ACCELERATORS
+BEGIN
+	0x4F,		IDA_OPEN_FILE, VIRTKEY, CONTROL		// Ctrl+'O'
+END
+
+// Dialog
+IDD_ABOUT DIALOGEX 0, 0, 100, 50
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS |
+	  WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 10, "MS Shell Dlg"
+BEGIN
+	LTEXT			"Just in case...",
+					-1, 10, 10, 114, 8, SS_NOPREFIX
+	LTEXT			"(c) Doofnik-Padjnik",
+					-1, 22, 22, 114, 8
+	DEFPUSHBUTTON	"Close", IDOK, 67, 33, 30, 14, WS_GROUP
+END
